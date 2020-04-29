@@ -1,22 +1,29 @@
-#All of the data we're using to detemrine the risk of severe illness come from the CDC.
+#All of the data we're using to detemrine the risk of severe illness come from the CDC themselves.
 #You can find it here at this website: https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/people-at-higher-risk.html
 
 #First, we'll determine the age of the user.
-age = input("enter your age.")
-age = int(age)
-if age > 65:
-    print("You are at high risk for covid-19. Please take the necessary precautions to protect yourself.")
-
-else:
-    print("Thank you. Let's continue.")
+while True:
+    try:
+        age = int(input("Please enter your age to begin: "))
+        break
+    except ValueError:
+        print("Seems we didn't get an age. Try again, please.")
 
 #Once that is complete, we can get to the nitty gritty. We'll calculate the household size, and how many people leave the house on a daily basis. 
-fno = input("How many people are in your household?")
-fno = int(fno)
+while True:
+    try:
+        fno = int(input("How many people are in your household? "))
+        break
+    except ValueError:
+        print("Oops, might want to try again.")
 
 #Once that is complete, we can calculate how many people practice proper hygiene. 
-hygiene = input("How many people practice proper hygine ettiquite in your home?")
-hygiene = int(hygiene)
+while True:
+    try:
+        hygiene = int(input("How many people practice proper hygine ettiquite in your home? "))
+        break
+    except ValueError:
+        print("Hmm... Try that one again.")
 
 #The wash variable will serve in our mission later. An arbitrary number, but practical.
 wash =  hygiene / fno * 100 
@@ -80,12 +87,16 @@ while answer3 != 'yes' or answer3 != 'no':
         print("Seems we didn't get that.")
         
 #Now, we'll break it up and go back to the traditional, just for a second. 
-BMI = input("What is your BMI (Body Mass Index)?")
-BMI = int(BMI)
-if BMI >= 40:
-    h4r = h3r + 1
-else:
-    h4r = h3r + 0
+while True:
+    try:
+        BMI = int(input("What is your BMI (Body Mass Index? "))
+        if BMI >= 40:
+            h4r = h3r + 1
+        else:
+            h4r = h3r + 0
+        break
+    except ValueError:
+        print("Oops, might want to try again.")
 
 #Back to our yes/no loops.
 print("Do you have diabetes?")
@@ -139,10 +150,18 @@ while answer6 != 'yes' or answer6 != 'no':
 
     else:
         print("Hmm, seems we didn't get that.")
-#Now that that's done, we can bring it all home with the final results.
-print(h7r, "of your responses to the 8 health questions have determined your risk of catching covid-19. Be sure to take the necessary precautions to keep you and your family safe.")
+
+#Now that that's done, we can bring it all home with the final results, starting with the age results.
+if age >= 65:
+    print("You said your age was ", age, ". You are at a higher risk of catching COVID-19. Please take the precautions to protect yourself and your family.")
+else:
+    print("You said your age was ", age, ". You are not at a risk because of your age, but you should still be wary.")
+
+#And now for the health questions, according to the CDC:   
+print(h7r, "of your responses to the 8 health questions have determined your risk of catching COVID-19. Be sure to take the necessary precautions to keep you and your family safe.")
+
 #And we'll bring back the wash variable:
-if wash <= 50: 
+if wash <= 60: 
     print("In addition, your household should practice better hygiene. the ratio was only ", wash, "percent. Even simply washing your hands helps.")
 else:
     print("Your household hygiene ratio was ", wash, "percent. It helps keep everyone safe, so keep it up. Even simply washing your hands helps.")
