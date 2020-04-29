@@ -14,16 +14,13 @@ else:
 fno = input("How many people are in your household?")
 fno = int(fno)
 
-leave = input("How many people leave the house on a daily basis?")
-leave = int(leave)
-
 #Once that is complete, we can calculate how many people practice proper hygiene. 
 hygiene = input("How many people practice proper hygine ettiquite in your home?")
 hygiene = int(hygiene)
 
 #The wash variable will serve in our mission later. An arbitrary number, but practical.
 wash =  hygiene / fno * 100 
-print(wash)
+
     
 #Now we work on the CDC junk, starting from the top.
 print("Now we'll ask some health questions.")
@@ -143,4 +140,10 @@ while answer6 != 'yes' or answer6 != 'no':
     else:
         print("Hmm, seems we didn't get that.")
 #Now that that's done, we can bring it all home with the final results.
-print(h7r, "of your responses to the 8 health questions have determined your risk for catching covid-19.")
+print(h7r, "of your responses to the 8 health questions have determined your risk of catching covid-19. Be sure to take the necessary precautions to keep you and your family safe.")
+#And we'll bring back the wash variable:
+if wash <= 50: 
+    print("In addition, your household should practice better hygiene. the ratio was only ", wash, "percent. Even simply washing your hands helps.")
+else:
+    print("Your household hygiene ratio was ", wash, "percent. It helps keep everyone safe, so keep it up. Even simply washing your hands helps.")
+          
