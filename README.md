@@ -1,2 +1,2 @@
 # cdc_corona_project_nate
-Coding project for CS. Basic Loops in python, used to calculate risk based on the CDC's coronavirus risk factor webpage.
+Coding project for CS, a Covid-19 risk calculator, as well as the other coding projects I had performed on during the semester.
